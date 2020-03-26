@@ -1,39 +1,33 @@
+#include "Console.h"
+
 #include <iostream>
-#include "Family.h"
-#include "RepositoryArray.h"
-#include "Tests.h"
+#include "TestRepositoryFile.h"
+
 using namespace std;
-int main()
-{
 
-	int op, day, money;
-	char* payment;
-	payment = new char[101];
-	RepositoryArray rep;
-	Family f;
-	while (true)
-	{
-		cout << "1.Citirea unei cheltuieli"<<'\n';
-		cout << "2.Afisarea cheltuielilor" << '\n';
-		cout << "3.Exit"<<'\n';
+void initService(Service& s) {
+	RepositoryFile r;
+	r.loadFromFile("Cheltuieli.txt");
+	s.setRepo(r);
+}
 
-		cout << "Alegeti o optiune : ";
-		cin >> op;
-		if (op == 1)
-		{
-			cout << "Introduceti cheltuiala[tip zi suma] : ";
-			cin >> payment >> day >> money;
-			f = Family(payment, day, money);
-			rep.addElem(f);
-		}
-		else if (op == 2)
-		{
-			cout << "Cheltuielile sunt : "<<f;
-		}
-		else if (op == 3)
-		{
-			break;
-		}
-	}
-	delete[] payment;
+int main() {
+	cout << "start..." << endl;
+
+	/******TEST REPO FILE****/
+	/*TestRepositoryFile test;
+	test.testAddElem();
+	test.testDelElem();
+	test.testElemAtPos();
+	test.testFindElem();
+	test.testGetAll();
+	test.testSize();
+	test.testUpdateElem();*/
+
+
+	Service serv;
+	initService(serv);
+	showUI(serv);
+	cout << "succes";
+	return 0;
 }
