@@ -1,0 +1,5 @@
+mancare 1 200
+caldura 10 350
+facturi 3 400
+sala 5 150
+
