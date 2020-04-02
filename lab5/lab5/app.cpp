@@ -1,5 +1,6 @@
 #include "Console.h"
-
+#include "Service.h"
+#include "RepositoryFileSTL.h"
 #include <iostream>
 #include "TestRepositoryFile.h"
 
@@ -24,10 +25,15 @@ int main() {
 	test.testSize();
 	test.testUpdateElem();*/
 
+	/******** TEST SERVICE ******/
+/*	TestService ts;
+	ts.runTests();
+	*/
 
+	UI console;
 	Service serv;
 	initService(serv);
-	showUI(serv);
+	console.showUI(serv);
 	cout << "succes";
 	return 0;
 }
